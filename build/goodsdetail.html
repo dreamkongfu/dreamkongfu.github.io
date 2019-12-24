@@ -27,6 +27,21 @@
         display: none; 
       }
     }
+    #cart:hover{
+        color: bule;
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+      }
+      @keyframes shake {
+        0% { transform:  rotate(5deg); }
+        
+        30% { transform: rotate(0deg); }
+        
+        60% { transform:  rotate(-5deg); }
+        
+        90% { transform:  rotate(0deg); }
+        100% { transform:  rotate(5deg); }
+      }
   </style>
   <script>
         $(document).ready(function(){
@@ -135,7 +150,7 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="./cart.html"><span id ="cart" class="glyphicon glyphicon-shopping-cart">&nbspCart</span></a></li>
       </ul>
     </div>
   </div>
@@ -195,7 +210,7 @@
        <div class = "row">
             <div class="col-xs-4">
                 <label > Price </label>
-                $<label id = 'price' value='168'>168</label>
+              <div>$<label id = 'price' value='168'>168</label></div>
             </div>
                 
             <div class="col-xs-3">
