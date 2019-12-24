@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <style>
+      /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+      .navbar {
+        margin-bottom: 50px;
+        border-radius: 0;
+      }
+      .panel-body {
+        height : 250px
+      }
+      /* Remove the jumbotron's default bottom margin */ 
+       .jumbotron {
+        margin-bottom: 0;
+      }
+      
+      #cart:hover{
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+      }
+      @keyframes shake {
+        0% { transform:  rotate(5deg); }
+        
+        30% { transform: rotate(0deg); }
+        
+        60% { transform:  rotate(-5deg); }
+        
+        90% { transform:  rotate(0deg); }
+        100% { transform:  rotate(5deg); }
+      }
+      #sky{
+        color:#153d54;
+      }
+      .panel:hover{
+        transform: scale(1.05);
+      }
+      .panel-footer{
+        
+        font-style: Arial;
+      }
+      /* Add a gray background color and some padding to the footer */
+      footer {
+        background-color: #f2f2f2;
+        padding: 25px;
+      }
+    </style>
+    <script>
+      $(document).ready(function(){
+          $(".panel-body a").on("click",function(event){
+            var target = event.target;
+        
+            var imagUrl = $(target).attr('src');
+            var name1 = $(target).attr('name');
+            var price1 = $(target).attr('value');
+            var item = {name: name1,price: price1,quantity:'1',imgpath:imagUrl};
+            if(typeof(Storage)!=='undefined'){
+              sessionStorage.setItem('curItem',JSON.stringify(item));
+            }
+          });
+      });
+      $(window).on('unload',function() {
+          $(".panel-body a").off("click") ;
+          
+
+        });
+
+    </script>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+  
+    <div class="jumbotron" id ="sky">
+      <div class="container text-center"  >
+        <div class ="xmas-sky"  ></div>
+        <div class ="snow"></div>
+        <h1>Online Store</h1>      
+        <p>Mission, Vission & Values</p>
+      </div>
+    </div>
+    
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="#">Logo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li ><a href="/">Home</a></li>
+            <li><a href="./product.html">Products</a></li>
+            <li class="active"><a href="./deal.html">Deals</a></li>
+            <li><a href="./store.html">Stores</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+            <li ><a href="./cart.html"><span id = "cart" class="glyphicon glyphicon-shopping-cart span-jittery">&nbspCart</span> </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="container">    
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">Veggitas Botanical</div>
+            <div class="panel-body"><a href="./goodsdetail.html"><img src="./bag6.png" name="Veggitas Botanical" value="236" class="img-responsive" style="width:100%" alt="Image" ></a></div>
+            <div class="panel-footer">Final Days to Save</div>
+          </div>
+        </div>
+        <div class="col-sm-4"> 
+          <div class="panel panel-danger">
+            <div class="panel-heading">ACONITUM DRIVE</div>
+            <div class="panel-body"><a href="./goodsdetail.html"><img src="./bag9.png" name="ACONITUM DRIVE" value="266" class="img-responsive" style="width:100%" alt="Image"></a></div>
+            <div class="panel-footer">Limited-Time Offer</div>
+          </div>
+        </div>
+        <div class="col-sm-4"> 
+          <div class="panel panel-success">
+            <div class="panel-heading">Star of Bethlehem</div>
+            <div class="panel-body"><a href ="./goodsdetail.html"><img src="./bag7.png" name="Star of Bethlehem" value="106" class="img-responsive" style="width:100%" alt="Image"></a></div>
+            <div class="panel-footer">SAVE UP TO 25% RIGHT NOW!!!</div>
+          </div>
+        </div>
+      </div>
+    </div><br>
+    
+    <div class="container">    
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">Sweet Alyssum</div>
+            <div class="panel-body"><a href ="./goodsdetail.html"><img src="./bag3.png" name="Sweet Alyssum" value="156" class="img-responsive" style="width:100%" alt="Image"></a></div>
+            <div class="panel-footer"> Our Biggest Sale of the Year</div>
+          </div>
+        </div>
+        <div class="col-sm-4"> 
+          <div class="panel panel-primary">
+            <div class="panel-heading">CHELSEA CONVERTIBLE</div>
+            <div class="panel-body"><a href ="./goodsdetail.html"><img src="./bag4.png" name="CHELSEA CONVERTIBLE" value="166" class="img-responsive"  style="width:100%" alt="Image"></a></div>
+            <div class="panel-footer">$25 Off Your Next Purchase</div>
+          </div>
+        </div>
+        <div class="col-sm-4"> 
+          <div class="panel panel-primary">
+            <div class="panel-heading">Lady's Mantle</div>
+            <div class="panel-body"><a href ="./goodsdetail.html"><img src="./bag8.png" name="Lady's Mantle" value="66" class="img-responsive" style="width:100%" alt="Image"></a></div>
+            <div class="panel-footer"> Once in a Lifetime</div>
+          </div>
+        </div>
+      </div>
+    </div><br><br>
+    
+    <footer class="container-fluid text-center">
+      <p>Online Store Copyright</p>  
+      <form class="form-inline">Get deals:
+        <input type="email" class="form-control" size="50" placeholder="Email Address">
+        <button type="button" class="btn btn-danger">Sign Up</button>
+      </form>
+    </footer>
+  </body>
+</html>
