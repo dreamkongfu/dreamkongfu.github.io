@@ -23,6 +23,13 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+  const message = firebase.messaging();
+  message.requestPermission().then(function(){
+       console.log("have permission");
+  })
+  .catch(function(err){
+       console.log(err);
+  });
 </script>
 
 
